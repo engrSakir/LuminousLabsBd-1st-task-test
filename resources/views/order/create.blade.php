@@ -333,23 +333,25 @@
             $('#same_as_customer_address').change(function()
             {
                 if ($(this).is(':checked')) {
-                    $('#shipping_customer_full_name').prop('required',false);
-                    $('#shipping-info-area').hide();
-                }else{
-                    $('#shipping_customer_full_name').prop('required',true);
-                    $('#shipping-info-area').show();
-                };
+                    $('#shipping_customer_full_name').val($('#customer_full_name').val());
+                    $('#shipping_company_name').val($('#company_name').val());
+                    $('#shipping_street').val($('#street').val());
+                    $('#shipping_city').val($('#city').val());
+                    $('#shipping_zip_code').val($('#zip_code').val());
+                    $('#shipping_country').val($('#country').val());
+                }
             });
 
             $('#same_as_shipping_address').change(function()
             {
                 if ($(this).is(':checked')) {
-                    $('#billing_customer_full_name').prop('required',false);
-                    $('#billing-info-area').hide();
-                }else{
-                    $('#billing_customer_full_name').prop('required',true);
-                    $('#billing-info-area').show();
-                };
+                    $('#billing_customer_full_name').val($('#shipping_customer_full_name').val());
+                    $('#billing_company_name').val($('#shipping_company_name').val());
+                    $('#billing_street').val($('#shipping_street').val());
+                    $('#billing_city').val($('#shipping_city').val());
+                    $('#billing_zip_code').val($('#shipping_zip_code').val());
+                    $('#billing_country').val($('#shipping_country').val());
+                }
             });
         });
     </script>

@@ -84,8 +84,6 @@
 			$this->form[] = ['label'=>'Billing City','name'=>'billing_city','type'=>'text','validation'=>'nullable|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Billing Zip Code','name'=>'billing_zip_code','type'=>'text','validation'=>'nullable|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Billing Country','name'=>'billing_country','type'=>'text','validation'=>'nullable|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Same as customer address','name'=>'same_as_customer_address','type'=>'checkbox','validation'=>'nullable|boolean','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Same as billing address','name'=>'same_as_shipping_address','type'=>'checkbox','validation'=>'nullable|boolean','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
@@ -323,23 +321,7 @@
 	    |
 	    */
 	    public function hook_before_add(&$postdata) {
-	        if($postdata['same_as_customer_address']){
-                $postdata['shipping_customer_full_name'] = $postdata['customer_full_name'];
-                $postdata['shipping_company_name'] = $postdata['company_name'];
-                $postdata['shipping_street'] = $postdata['street'];
-                $postdata['shipping_city'] = $postdata['city'];
-                $postdata['shipping_zip_code'] = $postdata['zip_code'];
-                $postdata['shipping_country'] = $postdata['country'];
-            }
-
-	        if($postdata['same_as_shipping_address']){
-                $postdata['billing_customer_full_name'] = $postdata['shipping_customer_full_name'];
-                $postdata['billing_company_name'] = $postdata['shipping_company_name'];
-                $postdata['billing_street'] = $postdata['shipping_street'];
-                $postdata['billing_city'] = $postdata['shipping_city'];
-                $postdata['billing_zip_code'] = $postdata['shipping_zip_code'];
-                $postdata['billing_country'] = $postdata['shipping_country'];
-            }
+	        
 	    }
 
 	    /*
