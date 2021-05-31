@@ -65,7 +65,7 @@
 			$this->form[] = ['label'=>'City','name'=>'city','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Zip Code','name'=>'zip_code','type'=>'text','validation'=>'nullable|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Vat Number','name'=>'vat_number','type'=>'text','validation'=>'nullable|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Phone Number','name'=>'phone_number','type'=>'text','validation'=>'nullable|numeric','width'=>'col-sm-10','placeholder'=>'You can only enter the number only'];
+			$this->form[] = ['label'=>'Phone Number','name'=>'phone_number','type'=>'text','validation'=>'nullable|string','width'=>'col-sm-10','placeholder'=>'You can only enter the number only'];
 			$this->form[] = ['label'=>'Default Language','name'=>'default_language','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Country','name'=>'country','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Website','name'=>'website','type'=>'text','validation'=>'nullable|min:1|max:255','width'=>'col-sm-10'];
@@ -84,6 +84,8 @@
 			$this->form[] = ['label'=>'Billing City','name'=>'billing_city','type'=>'text','validation'=>'nullable|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Billing Zip Code','name'=>'billing_zip_code','type'=>'text','validation'=>'nullable|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Billing Country','name'=>'billing_country','type'=>'text','validation'=>'nullable|min:1|max:255','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Same as customer address','name'=>'same_as_customer_address','type'=>'checkbox','validation'=>'nullable|boolean','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Same as billing address','name'=>'same_as_shipping_address','type'=>'checkbox','validation'=>'nullable|boolean','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
@@ -321,8 +323,23 @@
 	    |
 	    */
 	    public function hook_before_add(&$postdata) {
-	        //Your code here
+	        if($postdata['same_as_customer_address']){
+                $postdata['shipping_customer_full_name'] = $postdata['customer_full_name'];
+                $postdata['shipping_company_name'] = $postdata['company_name'];
+                $postdata['shipping_street'] = $postdata['street'];
+                $postdata['shipping_city'] = $postdata['city'];
+                $postdata['shipping_zip_code'] = $postdata['zip_code'];
+                $postdata['shipping_country'] = $postdata['country'];
+            }
 
+	        if($postdata['same_as_shipping_address']){
+                $postdata['billing_customer_full_name'] = $postdata['shipping_customer_full_name'];
+                $postdata['billing_company_name'] = $postdata['shipping_company_name'];
+                $postdata['billing_street'] = $postdata['shipping_street'];
+                $postdata['billing_city'] = $postdata['shipping_city'];
+                $postdata['billing_zip_code'] = $postdata['shipping_zip_code'];
+                $postdata['billing_country'] = $postdata['shipping_country'];
+            }
 	    }
 
 	    /*
@@ -389,6 +406,7 @@
 
 
 	    //By the way, you can still create your own method in here... :)
+        //Custom View Of Add Method
         public function getAdd() {
             //Create an Auth
             if(!CRUDBooster::isCreate() && $this->global_privilege==FALSE || $this->button_add==FALSE) {
@@ -400,6 +418,21 @@
 
             //Please use view method instead view method from laravel
             return $this->view('order.create',$data);
+        }
+
+        //Custom View Of Edit Method
+        public function getEdit($id) {
+            //Create an Auth
+            if(!CRUDBooster::isUpdate() && $this->global_privilege==FALSE || $this->button_edit==FALSE) {
+                CRUDBooster::redirect(CRUDBooster::adminPath(),trans("crudbooster.denied_access"));
+            }
+
+            $data = [];
+            $data['page_title'] = 'Edit Data';
+            $data['row'] = DB::table('order_infos')->where('id',$id)->first();
+
+            //Please use view method instead view method from laravel
+            return $this->view('order.edit',$data);
         }
 
 	}

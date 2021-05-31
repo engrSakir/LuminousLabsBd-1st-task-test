@@ -29,7 +29,7 @@
                             <b title="This field is required">Customer Full Name <span class="text-danger" >*</span></b>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" title="Customer Full Name" required="" maxlength="255" class="form-control" name="customer_full_name" id="customer_full_name" value="{{ old('customer_full_name') }}">
+                                <input type="text" title="Customer Full Name" required="" maxlength="255" class="form-control" name="customer_full_name" id="customer_full_name" value="">
                             </div>
                             <div class="text-danger"></div>
                             <p class="help-block"></p>
@@ -38,7 +38,7 @@
                             <b title="This field is required">Street<span class="text-danger" >*</span></b>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                                <textarea cols="30" rows="2" title="Street" required="" maxlength="255" class="form-control" name="street" id="street">{{ old('street') }}</textarea>
+                                <textarea cols="30" rows="2" title="Street" required="" maxlength="255" class="form-control" name="street" id="street"></textarea>
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                             <b>Company Name</b>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                                <input type="text" title="Company Name" maxlength="255" class="form-control" name="company_name" id="company_name" value="{{ old('company_name') }}">
+                                <input type="text" title="Company Name" maxlength="255" class="form-control" name="company_name" id="company_name" value="">
                             </div>
                             <div class="text-danger"></div>
                             <p class="help-block"></p>
@@ -57,7 +57,7 @@
                             <b title="This field is required">City <span class="text-danger">*</span></b>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span>
-                                <input type="text" title="City" required="" maxlength="255" class="form-control" name="city" id="city" value="{{ old('city') }}">
+                                <input type="text" title="City" required="" maxlength="255" class="form-control" name="city" id="city" value="">
                             </div>
                             <div class="text-danger"></div>
                             <p class="help-block"></p>
@@ -66,7 +66,7 @@
                             <b>Zip Code</b>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-list"></i></span>
-                                <input type="text" title="Zip Code" maxlength="255" class="form-control" name="zip_code" id="zip_code" value="{{ old('zip_code') }}">
+                                <input type="text" title="Zip Code" maxlength="255" class="form-control" name="zip_code" id="zip_code" value="">
                             </div>
                             <div class="text-danger"></div>
                             <p class="help-block"></p>
@@ -78,7 +78,7 @@
                             <b>Vat Number</b>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-tags"></i></span>
-                                <input type="text" title="Vat Number" maxlength="255" class="form-control" name="vat_number" id="vat_number" value="{{ old('vat_number') }}">
+                                <input type="text" title="Vat Number" maxlength="255" class="form-control" name="vat_number" id="vat_number" value="">
                             </div>
                             <div class="text-danger"></div>
                             <p class="help-block"></p>
@@ -87,7 +87,7 @@
                            <b> Phone Number</b>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                <input type="text" title="Phone Number" placeholder="" class="form-control" name="phone_number" id="phone_number" value="{{ old('phone_number') }}">
+                                <input type="text" title="Phone Number" placeholder="" class="form-control" name="phone_number" id="phone_number" value="">
                             </div>
                             <div class="text-danger"></div>
                             <p class="help-block"></p>
@@ -123,7 +123,7 @@
                            <b>Website</b>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                                <input type="text" title="Website" maxlength="255" class="form-control" name="website" id="website" value="{{ old('website') }}">
+                                <input type="text" title="Website" maxlength="255" class="form-control" name="website" id="website" value="">
                             </div>
                             <div class="text-danger"></div>
                             <p class="help-block"></p>
@@ -132,7 +132,7 @@
                             <b> Customer Tags</b>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-                                <input type="text" title="Customer Tags" maxlength="255" class="form-control" name="customer_tags" id="customer_tags" value="{{ old('customer_tags') }}">
+                                <input type="text" title="Customer Tags" maxlength="255" class="form-control" name="customer_tags" id="customer_tags" value="">
                             </div>
                             <div class="text-danger"></div>
                             <p class="help-block"></p>
@@ -145,7 +145,7 @@
                            <div class="input-group">
                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                                <input type="email" name="email" style="display: none">
-                               <input type="email" title="Email" required="" placeholder="" maxlength="255" class="form-control" name="email" id="email" value="{{ old('email') }}">
+                               <input type="email" title="Email" required="" placeholder="" maxlength="255" class="form-control" name="email" id="email" value="">
                            </div>
                            <div class="text-danger"></div>
                            <p class="help-block"></p>
@@ -163,25 +163,17 @@
                            <p class="help-block"></p>
                        </div>
                    </div>
-
                     <div class='panel panel-default'>
-                        <div class="panel-heading" style="height:45px;">
-                            <div class="col-md-6" style="">
-                                <b>Shipping Info</b>
-                            </div>
-                            <div class="col-md-6" style="text-align:right;">
-                                <input type="checkbox" id="same_as_customer_address" name="same_as_customer_address">&nbsp;<label for="same_as_customer_address">Same as Customer Address</label>
-                            </div>
-                        </div>
+                        <div class='panel-heading'>Add Form</div>
                         <div class='panel-body'>
-                            <div class="box-body"  id="shipping-info-area">
+                            <div class="box-body">
                                 <!--Line Six-->
                                 <div class="row">
                                     <div class="col-md-4 form-group header-group-0" id="form-group-shipping_customer_full_name" style="">
                                         <b title="This field is required">Customer Full Name <span class="text-danger" >*</span></b>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                            <input type="text" title="Shipping Customer Full Name" required="" maxlength="255" class="form-control" name="shipping_customer_full_name" id="shipping_customer_full_name" value="{{ old('shipping_customer_full_name') }}">
+                                            <input type="text" title="Shipping Customer Full Name" required="" maxlength="255" class="form-control" name="shipping_customer_full_name" id="shipping_customer_full_name" value="">
                                         </div>
                                         <div class="text-danger"></div>
                                         <p class="help-block"></p>
@@ -190,7 +182,7 @@
                                         <b>Company Name</b>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                                            <input type="text" title="Shipping Company Name" maxlength="255" class="form-control" name="shipping_company_name" id="shipping_company_name" value="{{ old('shipping_company_name') }}">
+                                            <input type="text" title="Shipping Company Name" maxlength="255" class="form-control" name="shipping_company_name" id="shipping_company_name" value="">
                                         </div>
                                         <div class="text-danger"></div>
                                         <p class="help-block"></p>
@@ -199,7 +191,7 @@
                                         <b>Street</b>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span>
-                                            <input type="text" title="Shipping Street" maxlength="255" class="form-control" name="shipping_street" id="shipping_street" value="{{ old('shipping_street') }}">
+                                            <input type="text" title="Shipping Street" maxlength="255" class="form-control" name="shipping_street" id="shipping_street" value="">
                                         </div>
                                         <div class="text-danger"></div>
                                         <p class="help-block"></p>
@@ -211,7 +203,7 @@
                                         <b>City</b>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span>
-                                            <input type="text" title="Shipping City" maxlength="255" class="form-control" name="shipping_city" id="shipping_city" value="{{ old('shipping_city') }}">
+                                            <input type="text" title="Shipping City" maxlength="255" class="form-control" name="shipping_city" id="shipping_city" value="">
                                         </div>
                                         <div class="text-danger"></div>
                                         <p class="help-block"></p>
@@ -220,7 +212,7 @@
                                         <b>Zip Code</b>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-list"></i></span>
-                                            <input type="text" title="Shipping Zip Code" maxlength="255" class="form-control" name="shipping_zip_code" id="shipping_zip_code" value="{{ old('shipping_zip_code') }}">
+                                            <input type="text" title="Shipping Zip Code" maxlength="255" class="form-control" name="shipping_zip_code" id="shipping_zip_code" value="">
                                         </div>
                                         <div class="text-danger"></div>
                                         <p class="help-block"></p>
@@ -242,23 +234,16 @@
                         </div>
                     </div>
                     <div class='panel panel-default'>
-                        <div class="panel-heading" style="height:45px;">
-                            <div class="col-md-6" style="">
-                                <b>Billing Info</b>
-                            </div>
-                            <div class="col-md-6" style="text-align:right;">
-                                <input type="checkbox" id="same_as_shipping_address" name="same_as_shipping_address"> &nbsp;<label for="same_as_shipping_address">Same as Shipping Address</label>
-                            </div>
-                        </div>
+                        <div class='panel-heading'>Add Form</div>
                         <div class='panel-body'>
-                            <div class="box-body" id="billing-info-area">
+                            <div class="box-body">
                                 <!--Line Eight-->
                                 <div class="row">
                                     <div class="col-md-4 form-group header-group-0" id="form-group-billing_customer_full_name" style="">
                                         <b title="This field is required">Customer Full Name <span class="text-danger">*</span></b>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                            <input type="text" title="Billing Customer Full Name" required="" maxlength="255" class="form-control" name="billing_customer_full_name" id="billing_customer_full_name" value="{{ old('billing_customer_full_name') }}">
+                                            <input type="text" title="Billing Customer Full Name" required="" maxlength="255" class="form-control" name="billing_customer_full_name" id="billing_customer_full_name" value="">
                                         </div>
                                         <div class="text-danger"></div>
                                         <p class="help-block"></p>
@@ -267,7 +252,7 @@
                                         <b>Company Name</b>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                                            <input type="text" title="Billing Company Name" maxlength="255" class="form-control" name="billing_company_name" id="billing_company_name" value="{{ old('billing_company_name') }}">
+                                            <input type="text" title="Billing Company Name" maxlength="255" class="form-control" name="billing_company_name" id="billing_company_name" value="">
                                         </div>
                                         <div class="text-danger"></div>
                                         <p class="help-block"></p>
@@ -276,7 +261,7 @@
                                        <b>Street</b>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span>
-                                            <input type="text" title="Billing Street" maxlength="255" class="form-control" name="billing_street" id="billing_street" value="{{ old('billing_street') }}">
+                                            <input type="text" title="Billing Street" maxlength="255" class="form-control" name="billing_street" id="billing_street" value="">
                                         </div>
                                         <div class="text-danger"></div>
                                         <p class="help-block"></p>
@@ -288,7 +273,7 @@
                                         <b> City</b>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span>
-                                            <input type="text" title="Billing City" maxlength="255" class="form-control" name="billing_city" id="billing_city" value="{{ old('billing_city') }}">
+                                            <input type="text" title="Billing City" maxlength="255" class="form-control" name="billing_city" id="billing_city" value="">
                                         </div>
                                         <div class="text-danger"></div>
                                         <p class="help-block"></p>
@@ -297,7 +282,7 @@
                                        <b>Zip Code</b>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-list"></i></span>
-                                            <input type="text" title="Billing Zip Code" maxlength="255" class="form-control" name="billing_zip_code" id="billing_zip_code" value="{{ old('billing_zip_code') }}">
+                                            <input type="text" title="Billing Zip Code" maxlength="255" class="form-control" name="billing_zip_code" id="billing_zip_code" value="">
                                         </div>
                                         <div class="text-danger"></div>
                                         <p class="help-block"></p>
@@ -326,31 +311,4 @@
             </form>
         </div>
     </div>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $( document ).ready(function() {
-            $('#same_as_customer_address').change(function()
-            {
-                if ($(this).is(':checked')) {
-                    $('#shipping_customer_full_name').prop('required',false);
-                    $('#shipping-info-area').hide();
-                }else{
-                    $('#shipping_customer_full_name').prop('required',true);
-                    $('#shipping-info-area').show();
-                };
-            });
-
-            $('#same_as_shipping_address').change(function()
-            {
-                if ($(this).is(':checked')) {
-                    $('#billing_customer_full_name').prop('required',false);
-                    $('#billing-info-area').hide();
-                }else{
-                    $('#billing_customer_full_name').prop('required',true);
-                    $('#billing-info-area').show();
-                };
-            });
-        });
-    </script>
 @endsection
