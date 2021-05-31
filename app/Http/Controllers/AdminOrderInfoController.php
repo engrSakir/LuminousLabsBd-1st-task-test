@@ -1,7 +1,10 @@
 <?php namespace App\Http\Controllers;
 
-	use Session;
-	use Request;
+	use App\OrderInfo;
+
+    use Illuminate\Http\Request;
+    use Session;
+//	use Request;
 	use DB;
 	use CRUDBooster;
 
@@ -321,7 +324,7 @@
 	    |
 	    */
 	    public function hook_before_add(&$postdata) {
-	        
+
 	    }
 
 	    /*
@@ -415,6 +418,12 @@
 
             //Please use view method instead view method from laravel
             return $this->view('order.edit',$data);
+        }
+
+        //Custom order save
+        public function store(Request $request) {
+	        OrderInfo::create($request->all());
+            return back();
         }
 
 	}
