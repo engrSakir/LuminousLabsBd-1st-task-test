@@ -420,10 +420,17 @@
             return $this->view('order.edit',$data);
         }
 
-        //Custom order save
+        //Custom order save use route
         public function store(Request $request) {
 	        OrderInfo::create($request->all());
             return back();
         }
+
+        //Custom order save use crud booster
+        public function postAddOrder(Request $request) {
+	        OrderInfo::create($request->all());
+            return back();
+        }
+
 
 	}

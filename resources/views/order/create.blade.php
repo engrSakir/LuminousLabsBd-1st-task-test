@@ -20,7 +20,7 @@
     <div class='panel panel-default'>
         <div class='panel-heading'>Add Form</div>
         <div class='panel-body'>
-            <form method='post' action='{{ route('order.store') }}'>
+            <form method='post' action='{{CRUDBooster::mainpath('add-order')}}'>
                 @csrf
                 <div class="box-body" id="parent-form-area">
                     <!--Line One-->
